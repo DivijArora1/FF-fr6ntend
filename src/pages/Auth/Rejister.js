@@ -21,7 +21,7 @@ const Rejister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`/api/v1/auth/rejister`, {
+            const res = await axios.post(`https://ff-backend-jojs.onrender.com/api/v1/auth/rejister`, {
                 name,
                 email,
                 password,

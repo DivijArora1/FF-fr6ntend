@@ -23,7 +23,7 @@ const HomePage = () => {
     //get all category--filter
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get("/api/v1/category/get-category");
+            const { data } = await axios.get("https://ff-backend-jojs.onrender.com/api/v1/category/get-category");
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -40,7 +40,7 @@ const HomePage = () => {
     const filteredProduct = async () => {
         try {
             //api calll
-            const { data } = await axios.post('/api/v1/product/product-filters', { checked, radio })
+            const { data } = await axios.post('https://ff-backend-jojs.onrender.com/api/v1/product/product-filters', { checked, radio })
             setProducts(data?.products)//we are getting products from product controller
             //since we are passing the values ..so post req
 
@@ -54,7 +54,7 @@ const HomePage = () => {
     const getAllProducts = async () => {
         try {
             setLaoding(true)
-            const { data } = await axios.get(`/api/v1/product/product-list/${page}`)
+            const { data } = await axios.get(`https://ff-backend-jojs.onrender.com/api/v1/product/product-list/${page}`)
             setLaoding(false)
             setProducts(data.products)
         } catch (error) {
@@ -80,7 +80,7 @@ const HomePage = () => {
     //get total
     const getTotal = async () => {
         try {
-            const { data } = await axios.get('/api/v1/product/product-count')
+            const { data } = await axios.get('https://ff-backend-jojs.onrender.com/api/v1/product/product-count')
             setTotal(data?.total)
 
         } catch (error) {
@@ -99,7 +99,7 @@ const HomePage = () => {
     const loadMore = async () => {
         try {
             setLaoding(true)
-            const { data } = await axios.get(`/api/v1/product/product-list/${page}`)
+            const { data } = await axios.get(`https://ff-backend-jojs.onrender.com/api/v1/product/product-list/${page}`)
             setLaoding(false)
             setProducts([...products, ...data?.products])
 
@@ -159,7 +159,7 @@ const HomePage = () => {
 
                             <div className="card m-2" style={{ width: '18rem' }}  >
                                 <img
-                                    src={`/api/v1/product/product-photo/${p._id}`}
+                                    src={`https://ff-backend-jojs.onrender.com/api/v1/product/product-photo/${p._id}`}
                                     className="card-img-top"
                                     alt={p.name}
                                 />
